@@ -7,13 +7,13 @@ parser = argparse.ArgumentParser(description="This tools converts Leishmania don
     bart.cuypers@uantwerpen.be")
 parser.add_argument('LdBPK_IDs', metavar = 'LdBPK_IDs', type = str,
                     help = 'input gene list')
-parser.add_argument('-NA', metavar = 'Output_NA', type = bool,
-                    help = 'include genes in output without any ortholog? Default = True', default=True)
-parser.add_argument('-O', metavar = 'Output_Only', type = bool,
-                    help = 'only output result gene (not input gene)? Default = False', default=False)
+parser.add_argument('-excludeNA', dest='NA', action='store_false', help = 'exclude genes in output without any ortholog')
+parser.add_argument('-O', dest='O', action='store_true', help = 'only output result gene (not input gene)')
+parser.set_defaults(NA=True, O=False)
 
 args = parser.parse_args()
 orthologs = {}
+print(args)
 
 SCRIPTPATH = os.path.dirname(os.path.realpath(__file__))
 
