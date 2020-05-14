@@ -17,7 +17,7 @@ print(args)
 
 SCRIPTPATH = os.path.dirname(os.path.realpath(__file__))
 
-with open(SCRIPTPATH + '\Orthogroups.tsv') as myfile:
+with open(SCRIPTPATH + '/Orthogroups.tsv') as myfile:
     myfile.readline()
     for i in myfile:
         i = i.strip('\n').split('\t')
